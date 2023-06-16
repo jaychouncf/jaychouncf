@@ -6,6 +6,10 @@ name: CI
 on:
   schedule:
     - cron: 0 12 * * *
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Start!!!'
 
 jobs:
   job1:
@@ -22,9 +26,6 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
-
-      - name: pip install
-        run: pip install -r requirements.txt
 
       - name: execute
         id: execute
